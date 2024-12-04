@@ -1,0 +1,32 @@
+
+export class TaskRepetitions {
+    constructor(taskId, targetCount, completedCount) {
+        this._id = crypto.randomUUID();
+        this._taskId = taskId;
+        this._targetCount = targetCount;
+        this._completedCount = completedCount;
+    }
+
+    get id(){
+        return this._id;
+    }
+    get taskId(){
+        return this._taskId;
+    }
+    get targetCount(){
+        return this._targetCount;
+    }
+    get completedCount(){
+        return this._completedCount;
+    }
+
+    set taskId(taskId){
+        this._taskId = taskId;
+    }
+    set targetCount(targetCount){
+        this._targetCount = targetCount;
+    }
+    set completedCount(targetCount){
+        this._completedCount = targetCount;
+    }
+}
