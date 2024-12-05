@@ -5,6 +5,7 @@ import { View, Text, SafeAreaView } from 'react-native';
 import {HomePage} from "./app/components/homePage/HomePage";
 import {AddTaskPage} from "./app/components/addTaskPage/AddTaskPage";
 import {TaskProvider} from "./app/components/taskContext/TaskContext";
+import {MyCarousel} from "./app/components/carousel/Carousel";
 
 
 const Tab = createBottomTabNavigator();
