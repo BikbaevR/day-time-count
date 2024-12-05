@@ -3,6 +3,7 @@ import {View, SafeAreaView, Text, StyleSheet, Dimensions, ScrollView} from 'reac
 import {useContext, useState} from "react";
 import {TaskContext} from "../taskContext/TaskContext";
 import {TaskCard} from "../taskCard/TaskCard";
+import Carousel from "../carousel/Carousel";
 
 
 export const HomePage = () => {
@@ -11,29 +12,28 @@ export const HomePage = () => {
 
     return (
         <ScrollView contentContainerStyle={{gap:10}}>
+            <SafeAreaView style={styles.container}>
 
-        <SafeAreaView style={styles.container}>
+                <Text style={styles.mainText}>Ваши задачи</Text>
 
-            <Text style={styles.mainText}>Ваши задачи</Text>
-
-            {tasks.length > 0 ? tasks.map((task) => (
-                <TaskCard
-                    id={task.id}
-                    title={task.title}
-                    description={task.description}
-                    type={task.type}
-                    taskStatus={task.taskStatus}
-                    created_at={task.created_at}
-                    updated_at={task.updated_at}
-                    color={task.color}
-                    key={task.id}
-                />
-            )): <Text style={styles.mainText}>Задач нет</Text>}
+                {tasks.length > 0 ? tasks.map((task) => (
+                    <TaskCard
+                        id={task.id}
+                        title={task.title}
+                        description={task.description}
+                        type={task.type}
+                        taskStatus={task.taskStatus}
+                        created_at={task.created_at}
+                        updated_at={task.updated_at}
+                        color={task.color}
+                        key={task.id}
+                    />
+                )): <Text style={styles.mainText}>Задач нет</Text>}
 
 
-            {/*<Carousel />*/}
+                <Carousel />
 
-        </SafeAreaView>
+            </SafeAreaView>
         </ScrollView>
 
     )

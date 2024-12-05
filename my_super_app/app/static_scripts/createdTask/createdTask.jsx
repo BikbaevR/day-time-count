@@ -1,11 +1,12 @@
 import {useState} from "react";
-import {Task} from "../task/task";
+import {Task} from "../task/task"
+import { logger } from '../tools/logger'
 
 export const TaskManager = () => {
     const [tasks, setTasks] = useState([]);
 
     const addTask = (taskName, taskDescription, value) => {
-        console.log('task added');
+        logger.writeLog('task added');
         setTasks((prevTasks) => [
             ...prevTasks,
             new Task(taskName, taskDescription, value, 'Новый'),
