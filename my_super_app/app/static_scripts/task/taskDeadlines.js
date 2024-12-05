@@ -1,7 +1,8 @@
+import {generateId} from "../tools/Tools";
 
 export class TaskDeadlines {
     constructor(taskId, deadline) {
-        this._id = crypto.randomUUID();
+        this._id = generateId();
         this._taskId = taskId;
         this._deadline = deadline;
     }

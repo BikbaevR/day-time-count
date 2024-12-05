@@ -1,7 +1,9 @@
 
+import {generateId} from "../tools/Tools";
+
 export class Task {
     constructor(title, description = null, type, taskStatus) {
-        this._id = crypto.randomUUID();
+        this._id = generateId();
         this._title = title;
         this._description = description;
         this._type = type;

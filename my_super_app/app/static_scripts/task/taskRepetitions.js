@@ -1,7 +1,8 @@
+import {generateId} from "../tools/Tools";
 
 export class TaskRepetitions {
     constructor(taskId, targetCount, completedCount) {
-        this._id = crypto.randomUUID();
+        this._id = generateId();
         this._taskId = taskId;
         this._targetCount = targetCount;
         this._completedCount = completedCount;

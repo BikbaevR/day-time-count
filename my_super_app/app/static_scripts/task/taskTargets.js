@@ -1,7 +1,8 @@
+import {generateId} from "../tools/Tools";
 
 export class TaskTargets {
     constructor(taskId, targetValue, currentValue) {
-        this._id = crypto.randomUUID();
+        this._id = generateId();
         this._taskId = taskId;
         this._targetValue = targetValue;
         this._currentValue = currentValue;
