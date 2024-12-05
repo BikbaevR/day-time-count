@@ -25,6 +25,7 @@ export const HomePage = () => {
                     taskStatus={task.taskStatus}
                     created_at={task.created_at}
                     updated_at={task.updated_at}
+                    color={task.color}
                     key={task.id}
                 />
             )): <Text style={styles.mainText}>Задач нет</Text>}

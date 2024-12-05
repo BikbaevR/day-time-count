@@ -1,8 +1,8 @@
 
-import {generateId} from "../tools/Tools";
+import {generateId, getRandomColor} from "../tools/Tools";
 
 export class Task {
-    constructor(title, description = null, type, taskStatus) {
+    constructor(title, description = null, type, taskStatus, color = getRandomColor()) {
         this._id = generateId();
         this._title = title;
         this._description = description;
@@ -10,6 +10,7 @@ export class Task {
         this._taskStatus = taskStatus;
         this._created_at = Date.now();
         this._updated_at = Date.now();
+        this._color = color;
     }
 
 
@@ -34,6 +35,9 @@ export class Task {
     get updated_at(){
         return this._updated_at;
     }
+    get color(){
+        return this._color;
+    }
 
 
     set title(title){
@@ -53,5 +57,8 @@ export class Task {
     }
     set updated_at(updated_at){
         this._updated_at = updated_at;
+    }
+    set color(color){
+        this._color = color;
     }
 }

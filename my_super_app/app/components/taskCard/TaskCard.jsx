@@ -2,10 +2,10 @@ import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import {getRandomColor} from "../../static_scripts/tools/Tools";
 
 
-export const TaskCard = ({id, title, description, type, taskStatus, created_at, updated_at}) => {
+export const TaskCard = ({id, title, description, type, taskStatus, created_at, updated_at, color}) => {
 
     return(
-        <View style={[styles.container, { backgroundColor: getRandomColor(),}]} key={id}>
+        <View style={[styles.container, { backgroundColor: color,}]} key={id}>
             <Text>{id}</Text>
             <Text>{title}</Text>
             <Text>{description}</Text>
