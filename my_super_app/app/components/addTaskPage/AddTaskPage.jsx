@@ -14,9 +14,9 @@ export const AddTaskPage = () => {
 
     const handleSubmit = () => {
 
-        console.log(taskName);
-        console.log(taskDescription);
-        console.log(value);
+        // console.log(taskName);
+        // console.log(taskDescription);
+        // console.log(value);
 
         if (!taskName.trim() || !taskDescription.trim() || !value) {
             Alert.alert('Ошибка', 'Все поля должны быть заполнены!');
@@ -30,9 +30,13 @@ export const AddTaskPage = () => {
             taskStatus: 'Новый'
         };
 
-        Alert.alert('Задача создана!', JSON.stringify(newTask, null, 2));
+        // Alert.alert('Задача создана!', JSON.stringify(newTask, null, 2));
 
-        CreatedTask.push(new Task(newTask));
+        CreatedTask.push(new Task(taskName, taskDescription, value, 'Новый'));
+        CreatedTask.map((task, index) => {
+            console.log(task.id);
+            console.log(task.title);
+        })
 
         console.log(CreatedTask.length);
 

@@ -11,8 +11,7 @@ export const HomePage = () => {
                 return (
                     <View>
                         <Text>{task.id}</Text>
-                        <Text>{task.description}</Text>
-
+                        <Text>{task.title}</Text>
                     </View>
                 )
             })}
