@@ -29,16 +29,6 @@ const Tabs = () => {
 
     return (
         <Tab.Navigator id="main">
-            <Tab.Screen
-                name="Home"
-                component={HomePage}
-                options={{ headerShown: false, tabBarIcon: () => null }}
-            />
-            <Tab.Screen
-                name="Create task"
-                component={AddTaskPage}
-                options={{ headerShown: false, tabBarIcon: () => null }}
-            />
             {!authorized ?
                 <>
                     <Tab.Screen
@@ -52,7 +42,18 @@ const Tabs = () => {
                         options={{ headerShown: false, tabBarIcon: () => null }}
                     />
                 </> :
-                <></>
+                <>
+                    <Tab.Screen
+                        name="Home"
+                        component={HomePage}
+                        options={{ headerShown: false, tabBarIcon: () => null }}
+                    />
+                    <Tab.Screen
+                        name="Create task"
+                        component={AddTaskPage}
+                        options={{ headerShown: false, tabBarIcon: () => null }}
+                    />
+                </>
             }
         </Tab.Navigator>
     )
