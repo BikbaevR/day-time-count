@@ -1,7 +1,7 @@
 import {createContext, useState} from "react";
 import { logger } from '../static_scripts/tools/logger'
 import * as SecureStore from "expo-secure-store";
-import {saveToSecureStore} from "../secureStore/SecureStore";
+import {deleteFromSecureStore, saveToSecureStore} from "../secureStore/SecureStore";
 import {generateId} from "../static_scripts/tools/Tools";
 
 export const AuthContext = createContext();
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         setAuthorized(false);
         setUser(null)
-        
+        deleteFromSecureStore('userToken').then(r => {logger.writeLog("Пользователь разлогинился")})
     }
 
     const _checkLoginName = (loginName) => {

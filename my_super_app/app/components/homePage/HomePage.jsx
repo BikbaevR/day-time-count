@@ -1,6 +1,6 @@
 
-import {View, SafeAreaView, Text, StyleSheet, Dimensions, ScrollView, Button} from 'react-native'
-import {useContext, useState} from "react";
+import {View, SafeAreaView, Text, StyleSheet, Dimensions, ScrollView, Button, TouchableOpacity} from 'react-native'
+import React, {useContext, useState} from "react";
 import {TaskContext} from "../taskContext/TaskContext";
 import {TaskCard} from "../taskCard/TaskCard";
 import Carousel from "../carousel/Carousel";
@@ -16,11 +16,12 @@ export const HomePage = () => {
         <ScrollView contentContainerStyle={{gap:10}}>
             <SafeAreaView style={styles.container}>
 
-
                 {authorized ? (
                     <>
                         <Text style={styles.mainText}>Вы авторизованы - {user}</Text>
-                        <Button title="Выйти" onPress={() => logout()} />
+                        <TouchableOpacity style={styles.button} onPress={logout}>
+                            <Text style={styles.buttonText}>Выйти</Text>
+                        </TouchableOpacity>
                     </>
                 ) : (
                     <Text></Text>
@@ -68,5 +69,19 @@ const styles = StyleSheet.create({
         marginTop: 20,
         fontSize: 20,
         textAlign: 'center',
-    }
+    },
+    button: {
+        paddingHorizontal: 20,
+        paddingVertical: 12,
+        backgroundColor: '#dfdfdf',
+        width: '60%',
+        height: 50,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonText: {
+        fontSize: 15,
+        fontWeight: 'bold',
+    },
 })

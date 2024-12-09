@@ -42,7 +42,7 @@ export const Login = () => {
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-                        <Text style={styles.buttonText}>Создать</Text>
+                        <Text style={styles.buttonText}>Войти</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     container: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        paddingHorizontal: 20,
+        marginLeft: 20,
+        marginRight: 20,
     },
     input: {
         height: 50,
