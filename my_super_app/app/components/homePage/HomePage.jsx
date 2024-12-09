@@ -19,9 +19,11 @@ export const HomePage = () => {
                 {authorized ? (
                     <>
                         <Text style={styles.mainText}>Вы авторизованы - {user}</Text>
-                        <TouchableOpacity style={styles.button} onPress={logout}>
-                            <Text style={styles.buttonText}>Выйти</Text>
-                        </TouchableOpacity>
+                        <View style={styles.buttonPosition}>
+                            <TouchableOpacity style={styles.button} onPress={logout}>
+                                <Text style={styles.buttonText}>Выйти</Text>
+                            </TouchableOpacity>
+                        </View>
                     </>
                 ) : (
                     <Text></Text>
@@ -84,4 +86,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
     },
+    buttonPosition: {
+        // justifyContent: 'center',
+        alignItems: 'center'
+    }
 })
