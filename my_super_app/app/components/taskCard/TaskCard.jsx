@@ -3,7 +3,7 @@ import {getRandomColor} from "../../static_scripts/tools/Tools";
 
 
 export const TaskCard = ({id, title, description, type, taskStatus, created_at, updated_at, color}) => {
-
+    
     return(
         <View style={[styles.container, { backgroundColor: color,}]} key={id}>
             <Text>{id}</Text>

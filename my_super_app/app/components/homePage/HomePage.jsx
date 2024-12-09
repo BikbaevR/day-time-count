@@ -1,18 +1,35 @@
 
-import {View, SafeAreaView, Text, StyleSheet, Dimensions, ScrollView} from 'react-native'
+import {View, SafeAreaView, Text, StyleSheet, Dimensions, ScrollView, Button} from 'react-native'
 import {useContext, useState} from "react";
 import {TaskContext} from "../taskContext/TaskContext";
 import {TaskCard} from "../taskCard/TaskCard";
 import Carousel from "../carousel/Carousel";
+import {AuthContext} from "../../auth/AuthContext";
 
 
 export const HomePage = () => {
 
     const { tasks } = useContext(TaskContext);
+    const { authorized, user, logout } = useContext(AuthContext);
 
     return (
         <ScrollView contentContainerStyle={{gap:10}}>
             <SafeAreaView style={styles.container}>
+
+
+                {authorized ? (
+                    <>
+                        <Text style={styles.mainText}>Вы авторизованы - {user}</Text>
+                        <Button title="Выйти" onPress={() => logout()} />
+                    </>
+                ) : (
+                    <Text></Text>
+                )}
+
+
+
+
+
 
                 <Text style={styles.mainText}>Ваши задачи</Text>
 
@@ -28,10 +45,11 @@ export const HomePage = () => {
                         color={task.color}
                         key={task.id}
                     />
-                )): <Text style={styles.mainText}>Задач нет</Text>}
+                )):
+                    <Text style={styles.mainText}>Задач нет</Text>
+                }
 
-
-                <Carousel />
+                {/*<Carousel />*/}
 
             </SafeAreaView>
         </ScrollView>

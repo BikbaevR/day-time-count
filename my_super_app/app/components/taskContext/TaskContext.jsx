@@ -8,8 +8,7 @@ export const TaskProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
 
     const addTask = (taskName, taskDescription, value) => {
-        logger.writeLog('added')
-
+        logger.writeLog(`Задача [${taskName}] создана`);
         setTasks((prevTasks) => [...prevTasks, new Task(taskName, taskDescription, value, 'Новый')]);
     };
 

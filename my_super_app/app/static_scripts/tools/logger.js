@@ -1,6 +1,5 @@
 
 class Logger {
-
     constructor(loggerEnable) {
         this._loggerEnable = loggerEnable;
     }

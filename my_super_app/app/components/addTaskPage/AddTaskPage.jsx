@@ -19,32 +19,18 @@ export const AddTaskPage = () => {
             return;
         }
 
-        logger.writeLog(`Заголовок созданной задачи - ${taskName}`);
-        logger.writeLog(`Описание созданной задачи - ${taskDescription}`);
-        logger.writeLog(`Тип созданной задачи - ${value}`);
-        logger.writeLog(`Статус созданной задачи - 'Новый'`);
-        logger.writeLog(`Дата создания задачи - ${Date.now()}`);
-        logger.writeLog(`Дата изменения задачи - ${Date.now()}`);
-        logger.writeLog('===================================================')
+        // logger.writeLog(`Заголовок созданной задачи - ${taskName}`);
+        // logger.writeLog(`Описание созданной задачи - ${taskDescription}`);
+        // logger.writeLog(`Тип созданной задачи - ${value}`);
+        // logger.writeLog(`Статус созданной задачи - 'Новый'`);
+        // logger.writeLog(`Дата создания задачи - ${Date.now()}`);
+        // logger.writeLog(`Дата изменения задачи - ${Date.now()}`);
+        // logger.writeLog('===================================================')
 
         // Alert.alert('Задача создана!', JSON.stringify(newTask, null, 2));
 
 
-        // CreatedTask.push(new Task(taskName, taskDescription, value, 'Новый'));
-        // CreatedTask.map((task, index) => {
-        //     logger.writeLog(`ID созданной задачи - ${task.id}`);
-        //     logger.writeLog(`Заголовок созданной задачи - ${task.title}`);
-        //     logger.writeLog(`Описание созданной задачи - ${task.description}`);
-        //     logger.writeLog(`Тип созданной задачи - ${task.type}`);
-        //     logger.writeLog(`Статус созданной задачи - ${task.taskStatus}`);
-        //     logger.writeLog(`Дата создания задачи - ${task.created_at}`);
-        //     logger.writeLog(`Дата изменения задачи - ${task.updated_at}`);
-        //     logger.writeLog('*************************************************')
-        // })
-
         addTask(taskName, taskDescription, value);
-
-        logger.writeLog(`Кол-во элементов - ${CreatedTask.length}`);
     };
 
     const items = taskTypes.map((taskType) => ({
