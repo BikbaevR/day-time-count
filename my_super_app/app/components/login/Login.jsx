@@ -53,8 +53,7 @@ export const Login = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+
         marginLeft: 20,
         marginRight: 20,
     },
