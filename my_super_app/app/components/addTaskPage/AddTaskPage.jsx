@@ -2,9 +2,10 @@ import React, {useContext, useState} from 'react';
 import {View, SafeAreaView, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity, Alert} from 'react-native';
 import DropDownPicker from "react-native-dropdown-picker";
 import {taskTypes} from "../../static_scripts/taskTypes/taskTypes";
-import {CreatedTask, TaskManager} from "../../static_scripts/createdTask/createdTask";
 import { TaskContext } from '../taskContext/TaskContext'
 import { logger } from '../../static_scripts/tools/logger'
+import Animated, {useAnimatedStyle, useSharedValue, withTiming} from "react-native-reanimated";
+import {getRandomColor} from "../../static_scripts/tools/Tools";
 
 export const AddTaskPage = () => {
     const [open, setOpen] = useState(false);
@@ -13,23 +14,35 @@ export const AddTaskPage = () => {
     const [taskDescription, setTaskDescription] = useState('');
     const { addTask } = useContext(TaskContext);
 
+    const backgroundColor = useSharedValue('teal');
+    const AnimatedInput = Animated.createAnimatedComponent(TextInput);
+
+
+    const setText = (input) => {
+        setTaskDescription(input)
+    }
+
+    const animatedStyles = useAnimatedStyle(() => {
+        return {
+            height: 50,
+            paddingHorizontal: 10,
+            paddingVertical: 10,
+            marginBottom: 10,
+            borderRadius: 10,
+            borderWidth: 0,
+            backgroundColor: backgroundColor.value
+        };
+    });
+
+    const reColor = () => {
+        backgroundColor.value = getRandomColor()
+    }
+
     const handleSubmit = () => {
         if (!taskName.trim() || !taskDescription.trim() || !value) {
             Alert.alert('Ошибка', 'Все поля должны быть заполнены!');
             return;
         }
-
-        // logger.writeLog(`Заголовок созданной задачи - ${taskName}`);
-        // logger.writeLog(`Описание созданной задачи - ${taskDescription}`);
-        // logger.writeLog(`Тип созданной задачи - ${value}`);
-        // logger.writeLog(`Статус созданной задачи - 'Новый'`);
-        // logger.writeLog(`Дата создания задачи - ${Date.now()}`);
-        // logger.writeLog(`Дата изменения задачи - ${Date.now()}`);
-        // logger.writeLog('===================================================')
-
-        // Alert.alert('Задача создана!', JSON.stringify(newTask, null, 2));
-
-
         addTask(taskName, taskDescription, value);
     };
 
@@ -48,11 +61,14 @@ export const AddTaskPage = () => {
                     value={taskName}
                     onChangeText={setTaskName}
                 />
-                <TextInput
-                    style={styles.input}
+                <AnimatedInput
+                    style={animatedStyles}
                     placeholder='Описание'
                     value={taskDescription}
-                    onChangeText={setTaskDescription}
+                    onChangeText={(input) => {
+                        reColor()
+                        setText(input)
+                    }}
                 />
 
                 <DropDownPicker

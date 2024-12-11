@@ -29,29 +29,29 @@ const Tabs = () => {
 
     return (
         <Tab.Navigator id="main">
-            {!authorized ?
+            {authorized ?
                 <>
                     <Tab.Screen
                         name="Register"
                         component={Register}
-                        options={{ headerShown: false, tabBarIcon: () => null }}
+                        options={{ headerShown: false, tabBarIcon: () => null, unmountOnBlur: true }}
                     />
                     <Tab.Screen
                         name="Login"
                         component={Login}
-                        options={{ headerShown: false, tabBarIcon: () => null }}
+                        options={{ headerShown: false, tabBarIcon: () => null, unmountOnBlur: true }}
                     />
                 </> :
                 <>
                     <Tab.Screen
                         name="Home"
                         component={HomePage}
-                        options={{ headerShown: false, tabBarIcon: () => null }}
+                        options={{ headerShown: false, tabBarIcon: () => null, unmountOnBlur: true }}
                     />
                     <Tab.Screen
                         name="Create task"
                         component={AddTaskPage}
-                        options={{ headerShown: false, tabBarIcon: () => null }}
+                        options={{ headerShown: false, tabBarIcon: () => null, unmountOnBlur: true }}
                     />
                 </>
             }
